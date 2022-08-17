@@ -41,7 +41,7 @@ contract swapToken{
 
     function swap( address web3Token, address linkToken,uint _Web3Amount, uint _linkAmount) public {
         require(msg.sender == Web3TOwner|| msg.sender == linkToken);
-        require(msg.value > 0, “Swap amount should be correct”);
+        // require(msg.value > 0, “Swap amount should be correct”);
         require(
             Web3Token.allowance(Web3TOwner, address(this)) >= _Web3Amount,
             "This Token allowance too low"
@@ -67,5 +67,8 @@ contract swapToken{
         bool sent = tokenToSendOut.transferFrom(sender, recipient, amount);
         require(sent, "Token transfer failed");
     }
+
+    
+}    
 
         
